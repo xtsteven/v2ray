@@ -24,20 +24,20 @@ i[36]86)
 	v2ray_bit="32"
 	caddy_arch="386"
 	;;
-x86_64)
+'amd64' | x86_64)
 	v2ray_bit="64"
 	caddy_arch="amd64"
 	;;
 *armv6*)
-	v2ray_bit="arm"
+	v2ray_bit="arm32-v6"
 	caddy_arch="arm6"
 	;;
 *armv7*)
-	v2ray_bit="arm"
+	v2ray_bit="arm32-v7a"
 	caddy_arch="arm7"
 	;;
 *aarch64* | *armv8*)
-	v2ray_bit="arm64"
+	v2ray_bit="arm64-v8a"
 	caddy_arch="arm64"
 	;;
 *)
@@ -900,7 +900,7 @@ config() {
 	chmod +x $_v2ray_sh
 
 	v2ray_id=$uuid
-	alterId=233
+	alterId=0
 	ban_bt=true
 	if [[ $v2ray_transport -ge 18 ]]; then
 		v2ray_dynamicPort_start=${v2ray_dynamic_port_start_input}
